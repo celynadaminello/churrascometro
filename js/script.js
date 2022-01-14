@@ -7,10 +7,10 @@ const inputAdult1 = document.getElementsByTagName("input")[0]; //alcool
 const inputAdult2 = document.getElementsByTagName("input")[1];   //sem alcool
 const inputKids = document.getElementsByTagName("input")[2];
 const inputHours = document.getElementsByTagName("input")[3];
-const elementSend = document.getElementsByTagName("button");
+const elementSend = document.getElementsByTagName("button")[0];
 const resultCalc = document.getElementById("result")
 
-
+elementSend.setAttribute("onclick", "calc()")
 
     function calc(){
 
@@ -19,28 +19,36 @@ const resultCalc = document.getElementById("result")
         let kids = inputKids.value;
         let hours = inputHours.value;
 
+        let meat = (650*adultAlc) + (650*adultN) + (325*kids);
+        let beer = (2000*adultAlc);
+        let soda = (1500*adultN) + (750*kids);
+
         if (hours >= 6) {
-            let meat = (650*adultAlc) + (650*adultN) + (325*kids);
-            let beer = (2000*adultAlc);
-            let soda = (1500*adultN) + (750*kids);
             
+            meat
+            beer
+            soda
+
         }
         else{
-            let meat = (400*adultAlc) + (400*adultN) + (200*kids);
-            let beer = (1200*adultAlc);
-            let soda = (1000*adultN) + (500*kids);
+             meat = (400*adultAlc) + (400*adultN) + (200*kids);
+             beer = (1200*adultAlc);
+             soda = (1000*adultN) + (500*kids);
            
         }
 
-    }
+        resultCalc.innerHTML = `<p> 🍖${meat / 1000} Kg de Carne </p>`
+        resultCalc.innerHTML += `<p> 🍺${Math.ceil(beer / 355)} Latinhas de Cerveja </p>`
+        resultCalc.innerHTML += `<p> 🍾${Math.ceil(soda / 2000)} Garrafas(2L) de Bebida </p>`
 
-    function result(){
 
-        //elementSend.setAttribute("onclick", "calc()")
-
-        resultCalc.innerHTML = `<p> 🍖${meat / 1000}Kg de Carne </p>`
-        resultCalc.innerHTML = `<p> 🍖${Math.ceil(beer / 355)}Latinhas de Cerveja </p>`
-        resultCalc.innerHTML = `<p> 🍖${Math.ceil(soda / 2000)}Garrafas de Bebida </p>`
-
+        console.log(meat);
+        console.log(beer);
+        console.log(soda);
 
     }
+
+   
+
+        
+    
